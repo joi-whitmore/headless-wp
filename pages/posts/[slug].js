@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { getPostBySlug } from '../../lib/api';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Post() {
     const router = useRouter();
@@ -35,9 +37,9 @@ export default function Post() {
         <div className="max-w-4xl mx-auto px-4">
             <header className="py-6 border-b mb-8">
                 <div className="text-2xl font-bold">
-                    <a href="/" className="hover:text-gray-700">
+                    <Link href="/" className="hover:text-gray-700">
                         Your Site Name
-                    </a>
+                    </Link>
                 </div>
             </header>
 
@@ -54,9 +56,11 @@ export default function Post() {
                     </header>
 
                     {post.featuredImage?.node && (
-                        <img
+                        <Image
                             src={post.featuredImage.node.sourceUrl}
                             alt={post.featuredImage.node.altText || ''}
+                            width={800}
+                            height={500}
                             className="w-full h-auto mb-8 rounded-lg"
                         />
                     )}

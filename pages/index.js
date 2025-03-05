@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Layout from '../components/Layout';
 import { getAllPosts } from '../lib/api';
+import Image from 'next/image';
 
 export default function Home({ posts }) {
   return (
@@ -11,9 +12,11 @@ export default function Home({ posts }) {
           {posts.map((post) => (
               <div key={post.id} className="border rounded-lg overflow-hidden shadow-sm">
                 {post.featuredImage?.node && (
-                    <img
+                    <Image
                         src={post.featuredImage.node.sourceUrl}
                         alt={post.featuredImage.node.altText || ''}
+                        width={600}
+                        height={400}
                         className="w-full h-48 object-cover"
                     />
                 )}
