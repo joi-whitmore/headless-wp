@@ -28,54 +28,59 @@ function Navbar({ menuItems = [] }) {
 
     return (
         <header className="flex justify-center items-center w-full bg-white h-[130px]">
-            <nav className="flex justify-between items-center px-56 py-0 w-full max-w-[1512px] max-md:px-10 max-md:py-0 max-sm:px-5 max-sm:py-0">
-                <Link href="/" className="text-decoration-none">
-                    <h1 className="text-4xl text-black site-title">Joi Whitmore</h1>
-                </Link>
-
-                {/* Desktop Navigation */}
-                <div className="flex gap-8 items-center max-sm:hidden">
-                    {navigationItems.map((item, index) => (
-                        <NavLink
-                            key={index}
-                            text={item.label || item.title}
-                            href={item.path || item.url}
-                        />
-                    ))}
+            <div className="w-full px-5 md:px-10 lg:px-16 xl:px-56">
+                <nav className="flex justify-between items-center w-full">
                     <Link
-                        href="#"
-                        className="px-6 py-3 ml-10 text-sm font-medium text-white bg-[#8e2249] rounded cursor-pointer font-montserrat hover:bg-[#7a1d3e] transition duration-200"
-                    >
-                        LET'S HAVE A CHAT
+                        href="/" className="text-decoration-none">
+                        <h1 className="text-4xl text-black site-title">Joi Whitmore</h1>
                     </Link>
-                </div>
 
-                {/* Mobile Menu Button */}
-                <MobileMenuButton isOpen={isMenuOpen} onClick={toggleMenu} />
-
-                {/* Mobile Menu (conditionally rendered) */}
-                {isMenuOpen && (
-                    <div className="fixed top-[130px] left-0 right-0 bg-white p-5 shadow-md z-50 sm:hidden">
-                        <div className="flex flex-col gap-4">
-                            {navigationItems.map((item, index) => (
-                                <NavLink
-                                    key={index}
-                                    text={item.label || item.title}
-                                    href={item.path || item.url}
-                                />
-                            ))}
-                            <Link
-                                href="#"
-                                className="px-6 py-3 text-sm font-medium text-white bg-[#8e2249] rounded cursor-pointer font-montserrat hover:bg-[#7a1d3e] transition duration-200"
-                            >
-                                LET'S HAVE A CHAT
-                            </Link>
-                        </div>
+                    {/* Desktop Navigation - hide when below 960px (lg) */}
+                    <div className="flex gap-8 items-center max-lg:hidden">
+                        {navigationItems.map((item, index) => (
+                            <NavLink
+                                key={index}
+                                text={item.label || item.title}
+                                href={item.path || item.url}
+                            />
+                        ))}
+                        <Link
+                            href="#"
+                            className="btn-primary"
+                        >
+                            LET'S HAVE A CHAT
+                        </Link>
                     </div>
-                )}
-            </nav>
+
+                    {/* Mobile Menu Button - only show below 960px (lg) */}
+                    <div className="hidden max-lg:block">
+                        <MobileMenuButton isOpen={isMenuOpen} onClick={toggleMenu}/>
+                    </div>
+
+                    {/* Mobile Menu - only show when menu is open and below 960px (lg) */}
+                    {isMenuOpen && (
+                        <div className="fixed top-[130px] left-0 right-0 bg-white p-5 shadow-md z-50 lg:hidden">
+                            <div className="flex flex-col gap-4">
+                                {navigationItems.map((item, index) => (
+                                    <NavLink
+                                        key={index}
+                                        text={item.label || item.title}
+                                        href={item.path || item.url}
+                                    />
+                                ))}
+                                <Link
+                                    href="/contact"
+                                    className="px-6 py-3 text-sm font-medium text-white bg-[#8e2249] rounded cursor-pointer font-montserrat hover:bg-[#7a1d3e] transition duration-200 text-center mt-2"
+                                >
+                                    LET'S HAVE A CHAT
+                                </Link>
+                            </div>
+                        </div>
+                    )}
+                </nav>
+            </div>
         </header>
-    );
+);
 }
 
 export default Navbar;

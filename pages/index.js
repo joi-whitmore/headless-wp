@@ -1,11 +1,11 @@
 // pages/index.js
 import Link from 'next/link';
 import Layout from '../components/Layout';
-import { getAllPosts, getMainMenu } from '@/lib/api';
+import { getAllPosts, getMainMenu, getSiteInfo } from '@/lib/api';
 
-export default function Home({ posts, menuItems }) {
+export default function Home({ posts, menuItems, siteInfo }) {
   return (
-      <Layout title="Home | Joi Whitmore" menuItems={menuItems}>
+      <Layout title={`Home | ${siteInfo.title}`} menuItems={menuItems}>
         <div className="container mx-auto px-4 py-8">
           <h1 className="text-3xl font-bold mb-8">Latest Posts</h1>
 
@@ -50,11 +50,13 @@ export async function getStaticProps() {
   try {
     const posts = await getAllPosts();
     const menuItems = await getMainMenu();
+    const siteInfo = await getSiteInfo();
 
     return {
       props: {
         posts,
         menuItems,
+        siteInfo,
       },
       revalidate: 60,
     };
@@ -64,6 +66,11 @@ export async function getStaticProps() {
       props: {
         posts: [],
         menuItems: [],
+        siteInfo: {
+          title: 'Joi Whitmore', // Fallback title
+          description: '',
+          url: ''
+        }
       },
       revalidate: 10,
     };

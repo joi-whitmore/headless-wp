@@ -5,11 +5,11 @@ import React from "react";
 
 function HeroHeading() {
     return (
-        <div className="mb-2 flex">
-            <h1 className="mb-1 text-5xl text-[#4a5145] font-['Playfair_Display'] flex-2/3">
+        <div className="flex flex-col md:flex-row md:items-baseline mb-8">
+            <h1 className="mb-1 text-4xl md:text-3xl heading-primary flex-2/3">
                 Break the Patterns.
             </h1>
-            <h2 className="text-5xl accent-text flex-2/3">
+            <h2 className="text-5xl accent-text flex-2/3 text-right md:text-left sm:pt-2">
                 Rewrite Your Story.
             </h2>
         </div>
