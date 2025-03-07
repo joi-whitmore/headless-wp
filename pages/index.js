@@ -1,11 +1,12 @@
 // pages/index.js
+
 import Link from 'next/link';
 import Layout from '../components/Layout';
-import { getAllPosts, getMainMenu, getSiteInfo } from '@/lib/api';
+import {getAllPosts, getHomePageData, getMainMenu, getSiteInfo} from '@/lib/api';
 
-export default function Home({ posts, menuItems, siteInfo }) {
+export default function Home({ posts, menuItems, siteInfo, pageData }) {
   return (
-      <Layout title={`Home | ${siteInfo.title}`} menuItems={menuItems}>
+      <Layout title={`Home | ${siteInfo.title}`} menuItems={menuItems} pageData={pageData}>
         <div className="container mx-auto px-4 py-8">
           <h1 className="text-3xl font-bold mb-8">Latest Posts</h1>
 
@@ -49,6 +50,7 @@ export default function Home({ posts, menuItems, siteInfo }) {
 export async function getStaticProps() {
   try {
     const posts = await getAllPosts();
+    const pageData = await getHomePageData();
     const menuItems = await getMainMenu();
     const siteInfo = await getSiteInfo();
 
@@ -57,6 +59,7 @@ export async function getStaticProps() {
         posts,
         menuItems,
         siteInfo,
+        pageData
       },
       revalidate: 60,
     };
@@ -66,6 +69,7 @@ export async function getStaticProps() {
       props: {
         posts: [],
         menuItems: [],
+        pageData: null,
         siteInfo: {
           title: 'Joi Whitmore', // Fallback title
           description: '',

@@ -96,10 +96,28 @@ body {
   background-color: #771f3e;
 }
 
-.heading-primary {
+.heading-accent {
+  font-family: 'StayClassy', cursive!important;
+  font-weight: normal;
+}
+
+.heading-primary, .heading-secondary {
   font-family: 'Playfair Display', serif;
   color: #4a5145;
   font-weight: 400;
+}
+
+.subheading {
+  font-family: 'Montserrat', sans-serif;
+  color: #771f3e;
+  font-weight: 400;
+}
+
+.pattern-bg {
+  background-image: url(https://joiwhitmore.com/wp-content/uploads/2025/03/circle-pattern_x4_transparent.png);
+  --background-overlay: '';
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 /* Custom breakpoint for larger tablets */
@@ -112,8 +130,12 @@ body {
     display: flex;
   }
 
-  .heading-primary {
-    font-size: 40px;
+  .heading-primary, .heading-secondary {
+    font-size: 32px;
+  }
+
+  .subheading {
+    font-size: 20px;
   }
 }
 
@@ -123,5 +145,11 @@ body {
   }
   .heading-primary {
     font-size: 32px;
+  }
+}
+
+@media (min-width: 1028px) {
+  .heading-primary {
+    font-size: 40px;
   }
 }

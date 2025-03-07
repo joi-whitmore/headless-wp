@@ -3,9 +3,10 @@
 import Head from 'next/head';
 import Navbar from './Navbar';
 import MainHero from "@/components/MainHero";
+import ValueProposition from "@/components/ValueProposition";
+import AboutSection from "@/components/AboutSection";
 
-
-export default function Layout({ children, title = 'Joi Whitmore', menuItems = [] }) {
+export default function Layout({ children, title = 'Joi Whitmore', menuItems = [], pageData }) {
     return (
         <div className="min-h-screen flex flex-col text-gray-900">
             <Head>
@@ -16,7 +17,10 @@ export default function Layout({ children, title = 'Joi Whitmore', menuItems = [
 
             <Navbar menuItems={menuItems}/>
 
-            <MainHero/>
+            <MainHero heroData={pageData?.homepageContent?.mainHero}/>
+            <ValueProposition />
+
+            <AboutSection />
 
             <main className="flex-grow">
                 {children}
