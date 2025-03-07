@@ -1,49 +1,15 @@
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import { getPostBySlug } from '../../lib/api';
-import Link from 'next/link';
-import Image from 'next/image';
+// pages/posts/[slug].js
+import Layout from '../../components/Layout';
+import { getPostBySlug, getAllPostSlugs, getMainMenu } from '@/lib/api';
 
-export default function Post() {
-    const router = useRouter();
-    const { slug } = router.query;
-    const [post, setPost] = useState(null);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        async function loadPost() {
-            if (slug) {
-                try {
-                    const postData = await getPostBySlug(slug);
-                    setPost(postData);
-                } catch (error) {
-                    console.error('Error loading post:', error);
-                } finally {
-                    setLoading(false);
-                }
-            }
-        }
-
-        if (slug) {
-            loadPost();
-        }
-    }, [slug]);
-
-    if (!slug) return null;
-    if (loading) return <div className="max-w-4xl mx-auto px-4"><p>Loading post...</p></div>;
-    if (!post) return <div className="max-w-4xl mx-auto px-4"><p>Post not found</p></div>;
+export default function Post({ post, menuItems }) {
+    if (!post) {
+        return <Layout menuItems={menuItems}>Post not found</Layout>;
+    }
 
     return (
-        <div className="max-w-4xl mx-auto px-4">
-            <header className="py-6 border-b mb-8">
-                <div className="text-2xl font-bold">
-                    <Link href="/" className="hover:text-gray-700">
-                        Your Site Name
-                    </Link>
-                </div>
-            </header>
-
-            <main>
+        <Layout title={post.title} menuItems={menuItems}>
+            <div className="container mx-auto px-4 py-8">
                 <article>
                     <header className="mb-8">
                         <h1
@@ -56,11 +22,9 @@ export default function Post() {
                     </header>
 
                     {post.featuredImage?.node && (
-                        <Image
+                        <img
                             src={post.featuredImage.node.sourceUrl}
                             alt={post.featuredImage.node.altText || ''}
-                            width={800}
-                            height={500}
                             className="w-full h-auto mb-8 rounded-lg"
                         />
                     )}
@@ -70,11 +34,46 @@ export default function Post() {
                         dangerouslySetInnerHTML={{ __html: post.content }}
                     />
                 </article>
-            </main>
-
-            <footer className="py-6 mt-12 border-t">
-                <p>© {new Date().getFullYear()} Your Site Name</p>
-            </footer>
-        </div>
+            </div>
+        </Layout>
     );
+}
+
+export async function getStaticPaths() {
+    const posts = await getAllPostSlugs();
+
+    const paths = posts.map((post) => ({
+        params: { slug: post.slug },
+    }));
+
+    return {
+        paths,
+        fallback: 'blocking',
+    };
+}
+
+export async function getStaticProps({ params }) {
+    try {
+        const post = await getPostBySlug(params.slug);
+        const menuItems = await getMainMenu();
+
+        if (!post) {
+            return {
+                notFound: true,
+            };
+        }
+
+        return {
+            props: {
+                post,
+                menuItems,
+            },
+            revalidate: 60,
+        };
+    } catch (error) {
+        console.error('Error in getStaticProps:', error);
+        return {
+            notFound: true,
+        };
+    }
 }

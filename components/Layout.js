@@ -1,43 +1,31 @@
-import Head from 'next/head';
-import Link from 'next/link';
+// components/Layout.js
 
-export default function Layout({ children, title = 'Headless WordPress' }) {
+import Head from 'next/head';
+import Navbar from './Navbar';
+import MainHero from "@/components/MainHero";
+
+
+export default function Layout({ children, title = 'Joi Whitmore', menuItems = [] }) {
     return (
-        <div className="max-w-4xl mx-auto px-4">
+        <div className="min-h-screen flex flex-col text-gray-900">
             <Head>
                 <title>{title}</title>
-                <meta name="description" content="Headless WordPress with Next.js" />
-                <link rel="icon" href="/favicon.ico" />
+                <meta name="description" content="Joi Whitmore's website"/>
+                <link rel="icon" href="/favicon.ico"/>
             </Head>
 
-            <header className="py-6 border-b mb-8">
-                <div className="flex justify-between items-center">
-                    <div className="text-2xl font-bold">
-                        <Link href="/" className="hover:text-gray-700">
-                            Your Site Name
-                        </Link>
-                    </div>
-                    <nav>
-                        <ul className="flex space-x-6">
-                            <li>
-                                <Link href="/" className="hover:text-blue-600">
-                                    Home
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/about" className="hover:text-blue-600">
-                                    About
-                                </Link>
-                            </li>
-                        </ul>
-                    </nav>
+            <Navbar menuItems={menuItems}/>
+
+            <MainHero/>
+
+            <main className="flex-grow">
+                {children}
+            </main>
+
+            <footer className="py-6 bg-gray-50">
+                <div className="container mx-auto px-4 text-center">
+                    <p>© {new Date().getFullYear()} Joi Whitmore</p>
                 </div>
-            </header>
-
-            <main>{children}</main>
-
-            <footer className="py-6 mt-12 border-t">
-                <p>© {new Date().getFullYear()} Your Site Name</p>
             </footer>
         </div>
     );

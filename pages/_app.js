@@ -1,5 +1,12 @@
-import "@/styles/globals.css";
+import { montserrat, stayClassy } from '@/lib/fonts';
+import '../styles/globals.css';
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+function MyApp({ Component, pageProps }) {
+  return (
+      <main className={`${montserrat.variable} ${stayClassy.variable}`}>
+        <Component {...pageProps} />
+      </main>
+  );
 }
+
+export default MyApp;

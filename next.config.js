@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['joiwhitmore.com'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'joiwhitmore.com',
+                pathname: '/wp-content/uploads/**',
+            },
+        ],
     },
     eslint: {
         // We can disable eslint during builds if needed

@@ -1,15 +1,16 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@theme {
+    --sage-50: #e8efe0;
+    --burgundy: #8b284a;
+}
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +23,22 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Montserrat, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: Montserrat, system-ui, sans-serif;
+  }
+}
+
+.site-title {
+  font-family: 'StayClassy', cursive !important;
+  font-size: 2.875rem;
+  line-height: 2.25rem;
+}
+
+.accent-text {
+  font-family: 'StayClassy', cursive !important;
+  color: var(--burgundy)
 }
