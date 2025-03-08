@@ -1,8 +1,9 @@
 import React from 'react';
+import Button from './Button';
 
 // ClientCard component for each client box
 const ClientCard = ({ image, description }) => (
-    <div className="bg-(--sage-50) px-8 pb-10 rounded-lg flex flex-col items-center">
+    <div className="bg-(--sage-50) px-8 pb-10 flex flex-col items-center">
         <div className="mb-4 w-full max-w-xs">
             <img src={image} alt="Client" className="w-full h-auto" />
         </div>
@@ -46,12 +47,12 @@ const WhoIWorkWith = ({
                 </div>
 
                 <div className="text-center">
-                    <a
+                    <Button
                         href={buttonLink}
-                        className="inline-block bg-green-100 hover:bg-green-200 text-green-800 font-medium py-3 px-6 rounded-md transition duration-300"
-                    >
-                        {buttonText}
-                    </a>
+                        text={buttonText}
+                        variant="secondary"
+                        size="md"
+                    />
                 </div>
             </div>
         </section>

@@ -6,6 +6,7 @@ import MainHero from "@/components/MainHero";
 import ValueProposition from "@/components/ValueProposition";
 import AboutSection from "@/components/AboutSection";
 import WhoIWorkWith from "@/components/WorkWith";
+import WorkWeDo from "@/components/WorkWeDo";
 
 export default function Layout({ children, title = 'Joi Whitmore', menuItems = [], pageData }) {
     return (
@@ -19,11 +20,14 @@ export default function Layout({ children, title = 'Joi Whitmore', menuItems = [
             <Navbar menuItems={menuItems}/>
 
             <MainHero heroData={pageData?.homepageContent?.mainHero}/>
+
             <ValueProposition />
 
             <AboutSection />
 
             <WhoIWorkWith />
+
+            <WorkWeDo />
 
             <main className="flex-grow">
                 {children}

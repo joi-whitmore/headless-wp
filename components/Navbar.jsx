@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import NavLink from "./NavLink";
 import MobileMenuButton from "./MobileMenuButton";
+import Button from "@/components/Button";
 
 function Navbar({ menuItems = [] }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,12 +45,11 @@ function Navbar({ menuItems = [] }) {
                                 href={item.path || item.url}
                             />
                         ))}
-                        <Link
+                        <Button
                             href="#"
                             className="btn-primary"
-                        >
-                            LET'S HAVE A CHAT
-                        </Link>
+                            text={"LET'S HAVE A CHAT"}
+                        />
                     </div>
 
                     {/* Mobile Menu Button - only show below 960px (lg) */}
@@ -69,7 +69,7 @@ function Navbar({ menuItems = [] }) {
                                     />
                                 ))}
                                 <Link
-                                    href="/contact"
+                                    href="#"
                                     className="px-6 py-3 text-sm font-medium text-white bg-[#8e2249] rounded cursor-pointer font-montserrat hover:bg-[#7a1d3e] transition duration-200 text-center mt-2"
                                 >
                                     LET'S HAVE A CHAT

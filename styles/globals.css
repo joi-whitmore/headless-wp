@@ -101,7 +101,7 @@ body {
   font-weight: normal;
 }
 
-.heading-primary, .heading-secondary {
+.heading-primary, .heading-secondary, .heading-level-three {
   font-family: 'Playfair Display', serif;
   color: #4a5145;
   font-weight: 400;
@@ -120,6 +120,12 @@ body {
   background-size: contain;
 }
 
+.body-outline {
+  background-image: url(https://joiwhitmore.com/wp-content/uploads/2025/02/body-shape_x4-sm.png);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+
 /* Custom breakpoint for larger tablets */
 @media (min-width: 960px) {
   .lg\:hidden {
@@ -132,6 +138,10 @@ body {
 
   .heading-primary, .heading-secondary {
     font-size: 32px;
+  }
+
+  .heading-level-three {
+    font-size: 24px;
   }
 
   .subheading {
