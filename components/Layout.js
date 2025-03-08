@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import MainHero from "@/components/MainHero";
 import ValueProposition from "@/components/ValueProposition";
 import AboutSection from "@/components/AboutSection";
+import WhoIWorkWith from "@/components/WorkWith";
 
 export default function Layout({ children, title = 'Joi Whitmore', menuItems = [], pageData }) {
     return (
@@ -21,6 +22,8 @@ export default function Layout({ children, title = 'Joi Whitmore', menuItems = [
             <ValueProposition />
 
             <AboutSection />
+
+            <WhoIWorkWith />
 
             <main className="flex-grow">
                 {children}

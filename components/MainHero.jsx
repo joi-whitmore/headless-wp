@@ -13,11 +13,11 @@ function MainHero({ heroData }) {
     } = heroData || {};
 
     return (
-        <section className="pt-16 px-6 md:px-20 w-full bg-(--sage-50) mh-[400px] pattern-bg">
-            <div className="container mx-auto max-w-[1120px] pt-16">
+        <section className="pt-16 px-6 md:px-20 w-full bg-(--sage-50) xl:min-h-[450px] pattern-bg">
+            <div className="container mx-auto max-w-[1120px] pt-16 px-4">
                 <div className="flex gap-8 items-center max-md:flex-col">
                     <div className="w-full md:w-2/3 max-md:order-1">
-                        <div className="w-full">
+                        <div className="w-full pb-6">
                             <HeroHeading title={heroHeadline} subtitle={heroSubheader}/>
                             <HeroContent content={heroIntroText}/>
                         </div>
