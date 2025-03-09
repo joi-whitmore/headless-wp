@@ -8,7 +8,7 @@ function HeroImage() {
     return (
         <div className="relative h-full">
             <Image
-                src="https://joiwhitmore.com/wp-content/uploads/2025/02/main-image.png" // Update this with your actual image path
+                src="/images/main-image.png" // Update this with your actual image path
                 alt="Joi Whitmore"
                 width={600}
                 height={800}

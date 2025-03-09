@@ -16,15 +16,15 @@ const WhoIWorkWith = ({
               title = "Who I Work With",
               clientData = [
                   {
-                      image: 'https://joiwhitmore.com/wp-content/uploads/2025/02/piano-man-300.png',
+                      image: '/images/piano-man-300.png',
                       description: 'People who are high-achievers but exhausted from carrying too much—whether in relationships, work, or both.'
                   },
                   {
-                      image: 'https://joiwhitmore.com/wp-content/uploads/2025/02/woman-in-chains-300.png',
+                      image: '/images/woman-in-chains-300.png',
                       description: 'Women who are waking up to the truth that their power was never in the hustle—but in the wisdom of the feminine they were taught to ignore.'
                   },
                   {
-                      image: 'https://joiwhitmore.com/wp-content/uploads/2025/02/self-aware-300.png',
+                      image: '/images/self-aware-300.png',
                       description: 'Smart, self-aware people who\'ve done all the \'inner work\'—but still feel like something isn\'t clicking.'
                   }
               ],

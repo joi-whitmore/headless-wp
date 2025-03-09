@@ -9,7 +9,7 @@ function HeroHeading({title, subtitle}) {
             <h1 className="mb-1 heading-primary flex-2/3">
                 {title}
             </h1>
-            <h2 className="text-5xl accent-text flex-2/3 text-right md:text-left sm:pt-2">
+            <h2 className="text-5xl accent-text text-(--burgundy) flex-2/3 text-right md:text-left sm:pt-2">
                 {subtitle}
             </h2>
         </div>

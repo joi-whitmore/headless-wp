@@ -5,7 +5,7 @@ export default function AboutSection() {
             {/* Left column with image - takes full width on mobile, 50% on larger screens */}
             <div className="w-full md:w-1/2 md:min-h-[600px]">
                 <img
-                    src="https://joiwhitmore.com/wp-content/uploads/2025/02/joi-book-1.jpg"
+                    src="/images/joi-book-1.jpg"
                     alt="Joi Whitmore reading a book"
                     className="w-full h-full object-cover"
                 />

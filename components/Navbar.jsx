@@ -68,12 +68,10 @@ function Navbar({ menuItems = [] }) {
                                         href={item.path || item.url}
                                     />
                                 ))}
-                                <Link
+                                <Button
                                     href="#"
-                                    className="px-6 py-3 text-sm font-medium text-white bg-[#8e2249] rounded cursor-pointer font-montserrat hover:bg-[#7a1d3e] transition duration-200 text-center mt-2"
-                                >
-                                    LET'S HAVE A CHAT
-                                </Link>
+                                    className="btn-primary"
+                                    text={"LET'S HAVE A CHAT"} />
                             </div>
                         </div>
                     )}
