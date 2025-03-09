@@ -5,7 +5,7 @@ import Button from './Button';
 const ClientCard = ({ image, description }) => (
     <div className="bg-(--sage-50) px-8 pb-10 flex flex-col items-center">
         <div className="mb-4 w-full max-w-xs">
-            <img src={image} alt="Client" className="w-full h-auto" />
+            <img src={image} alt="Client" loading="lazy" className="w-full h-auto" />
         </div>
         <p className="text-center text-gray-800">{description}</p>
     </div>

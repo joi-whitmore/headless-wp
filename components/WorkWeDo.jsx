@@ -20,11 +20,10 @@ export default function WorkWeDo() {
                 </p>
                 <h3 className="heading-level-three py-6">Through this work, you’ll:</h3>
                 <ul className="basic-list text-(--burgundy)">
-                    <li>Release the trapped emotions you’ve been carrying for years.</li>
-                    <li>Rewire old patterns and beliefs that are keeping you stuck.</li>
-                    <li>Reconnect with your body’s wisdom so you can move forward with clarity and ease.</li>
+                    <li>Release the <strong>trapped emotions</strong> you’ve been carrying for years.</li>
+                    <li><strong>Rewire old patterns</strong> and beliefs that are keeping you stuck.</li>
+                    <li><strong>Reconnect with your body’s wisdom</strong> so you can move forward with clarity and ease.</li>
                 </ul>
-
             </div>
         </section>
     );

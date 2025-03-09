@@ -7,6 +7,7 @@ import ValueProposition from "@/components/ValueProposition";
 import AboutSection from "@/components/AboutSection";
 import WhoIWorkWith from "@/components/WorkWith";
 import WorkWeDo from "@/components/WorkWeDo";
+import HowCanIHelp from "@/components/HowCanIHelp";
 
 export default function Layout({ children, title = 'Joi Whitmore', menuItems = [], pageData }) {
     return (
@@ -28,6 +29,8 @@ export default function Layout({ children, title = 'Joi Whitmore', menuItems = [
             <WhoIWorkWith />
 
             <WorkWeDo />
+
+            <HowCanIHelp />
 
             <main className="flex-grow">
                 {children}
