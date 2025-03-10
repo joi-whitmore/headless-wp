@@ -14,13 +14,6 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
@@ -100,6 +93,18 @@ body {
     font-weight: 500; /* font-medium */
     color: white;
     background-color: #4d5548;
+    border-radius: 0.25rem; /* rounded */
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn-secondary-dark {
+    padding: 0.75rem 1.5rem; /* px-6 py-3 */
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    color: white;
+    background-color: #283C10;
     border-radius: 0.25rem; /* rounded */
     cursor: pointer;
     transition: background-color 0.2s;

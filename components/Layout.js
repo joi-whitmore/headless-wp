@@ -9,6 +9,9 @@ import WhoIWorkWith from "@/components/WorkWith";
 import WorkWeDo from "@/components/WorkWeDo";
 import HowCanIHelp from "@/components/HowCanIHelp";
 import NewsletterSignup from "@/components/SignUp";
+import TestimonialSection from "@/components/TestimonialSection";
+import {Footer} from "@/components/Footer";
+import BlogGrid from "@/components/BlogGrid";
 
 export default function Layout({ children, title = 'Joi Whitmore', menuItems = [], pageData }) {
     return (
@@ -35,15 +38,10 @@ export default function Layout({ children, title = 'Joi Whitmore', menuItems = [
 
             <NewsletterSignup />
 
-            <main className="flex-grow">
-                {children}
-            </main>
+            <TestimonialSection />
+            <BlogGrid />
 
-            <footer className="py-6 bg-gray-50">
-                <div className="container mx-auto px-4 text-center">
-                    <p>© {new Date().getFullYear()} Joi Whitmore</p>
-                </div>
-            </footer>
+            <Footer />
         </div>
     );
 }

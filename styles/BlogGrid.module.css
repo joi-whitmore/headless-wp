@@ -1,0 +1,143 @@
+.blogSection {
+    padding: 2rem 0;
+    background-color: #e8efe0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.blogGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+/* Featured post styling */
+.featuredPost {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
+.featuredImageContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.featuredOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    color: white;
+}
+
+.featuredTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+/* Grid posts styling */
+.postsGrid {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.gridPost {
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+}
+
+.gridPost:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.gridImageContainer {
+    position: relative;
+    width: 100%;
+    height: 180px;
+}
+
+.gridContent {
+    padding: 1rem;
+}
+
+.gridTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* Common styles */
+.postLink {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.postImage {
+    object-fit: cover;
+}
+
+.postMeta {
+    display: flex;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+.calendarIcon, .eyeIcon {
+    margin-right: 0.25rem;
+}
+
+.viewCount {
+    margin-left: 1rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .blogGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .featuredPost {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .featuredImageContainer {
+        min-height: 400px;
+    }
+
+    .postsGrid {
+        grid-column: 1;
+        grid-row: 2;
+        grid-template-columns: 1fr;
+    }
+
+    .gridImageContainer {
+        height: 220px;
+    }
+}

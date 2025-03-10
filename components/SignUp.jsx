@@ -102,10 +102,9 @@ const NewsletterSignup = ({
                         <Button
                             type="submit"
                             disabled={isSubmitting}
-                            className="btn-secondary"
-                        >
-                            {isSubmitting ? "SIGNING UP..." : buttonText}
-                        </Button>
+                            className="btn-secondary-dark"
+                            text={isSubmitting ? "SIGNING UP..." : buttonText}
+                        />
                     </form>
                 </div>
 

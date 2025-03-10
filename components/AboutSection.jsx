@@ -12,7 +12,7 @@ export default function AboutSection() {
             </div>
 
             {/* Right column with burgundy background and text */}
-            <div className="w-full md:w-1/2 bg-[#8b284a] text-white p-8 md:p-12 lg:p-16">
+            <div className="w-full md:w-1/2 bg-(--burgundy) text-white p-8 md:p-12 lg:p-16">
                 <h2 className="text-3xl heading-accent text-white mb-6 lg:text-6xl">
                     Hello there, I'm Joi Whitmore!
                 </h2>
